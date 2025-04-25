@@ -1,4 +1,4 @@
-// Search for an element in a hash set.
+// Count common elements in two hash sets.
 class HashSet{
     constructor(size = 1000){
         this.size = size;           // 1 operation
@@ -36,29 +36,33 @@ class HashSet{
         return false;
     }
 
+    countCommonElements(otherSet){
+        let count = 0;
+        for(let i = 0; i<this.size; i++){
+            if(this.table[i]){
+                if(otherSet.searchElement(this.table[i])){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
 }
 
-const set = new HashSet();
-set.set("name", "Oggy");
-set.set("name", "Jack");
-set.set("name", "Bob");
-set.set("age", 30);
-set.set("age", 303);
-set.set("age", 309);
-set.set("city", "Paris");
-set.set("city", "Dhaka");
-set.set("city", "Kabul");
 
-console.log(set.get("name")); // Output: "Oggy"
-console.log(set.get("age")); // Output: 30
-console.log(set.get("city")); // Output: "Paris"
+const set1 = new HashSet();
+set1.set("name", "Oggy");
+set1.set("age", 30);
+set1.set("city", "Paris");
+set1.set("country", "France");
+set1.set("language", "French");
 
-console.log(set.has("name")); // Output: true
-console.log(set.has("age")); // Output: true
-console.log(set.has("city")); // Output: true
-console.log(set.has("country")); // Output: false
+const set2 = new HashSet();
+set2.set("name", "Jack");
+set2.set("age", 35);
+set2.set("city", "Paris");
+set2.set("country", "France");
+set2.set("language", "French");
 
-console.log(set.table);
-
-console.log(set.searchElement("Paris"));
-console.log(set.searchElement("Khulna"));
+console.log(set1.countCommonElements(set2));

@@ -1,3 +1,23 @@
+class isUnique{
+    constructor(array){
+        this.array = array;
+    }
+
+    checkArray(){
+        let distinct = new Set();
+        for(let i = 0; i<this.array.length; i++){
+            distinct.add(this.array[i]);
+        }
+        return (distinct.size == this.array.length);
+    }
+}
+
+const arr = new isUnique([1,3,3,4,5,6,7,8,9,10]);
+console.log(arr.checkArray());
+
+
+// from dynamic array problem
+
 class DynamicArray{
     constructor(){
         this.capacity = 10;    // assigning capacity count as 1 operation
@@ -39,21 +59,24 @@ class DynamicArray{
         this.array[0] = value;  // 1 operation
         this.size++;            // 2 operation  
     }
+
+    isUnique(){
+        let distinct = new Set();
+        for(let i = 0; i<this.size; i++){
+            distinct.add(this.array[i]);
+        }
+        console.log(distinct.size, this.size);
+        return (distinct.size == this.size);
+    }
 }
 
-const arr = new DynamicArray();
+const arr1 = new DynamicArray();
+arr1.push(12);
+arr1.push(52);
+arr1.push(34);
+arr1.push(22);
+arr1.push(23);
+arr1.push(23);
 
-arr.push(12);
-arr.push(52);
-arr.push(34);
-
-console.log(arr.array);  // [ 12, 52, 34, <7 empty items> ] created array with 3 values
-
-arr.insertAtBeginning(25);   // adding at beginning. 
-
-console.log(arr.array);     // [ 25, 12, 52, 34, <6 empty items> ]  25 added at index 0
-
-arr.push(11);
-arr.push(31);
-
-console.log(arr.array);
+console.log(arr1.array);
+console.log(arr1.isUnique());
