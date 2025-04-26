@@ -1,4 +1,7 @@
 // Count common elements in two hash sets.
+/**
+ * to count the common elements between 2 hash set we have to check if an elemnt of a hashset is available in the other hashset. So inside a hashset i have a method which takes another hashset as parameter and match elements of both sets.
+ */
 class HashSet{
     constructor(size = 1000){
         this.size = size;           // 1 operation
@@ -38,6 +41,9 @@ class HashSet{
 
     countCommonElements(otherSet){
         let count = 0;
+        /**
+         * here i will go through all the indexes of the array.  if the value is not null then check if that value can be found in the other hashset with searchElement method. O(n) time complexity for the  loop and O(n) for the searchElement method.
+         */
         for(let i = 0; i<this.size; i++){
             if(this.table[i]){
                 if(otherSet.searchElement(this.table[i])){

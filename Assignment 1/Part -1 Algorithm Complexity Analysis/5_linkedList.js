@@ -1,19 +1,19 @@
 // Delete a node from a singly linked list by value.
 
 class Node{
-    constructor(value){
-        this.value = value;
-        this.next = null;
+    constructor(value){     // constant time operation
+        this.value = value;     // single operation
+        this.next = null;       // single operation
     }
 }
 
 class LinkedList{
     constructor(){
-        this.head = null;
+        this.head = null;       // single operation. constant time
     }
 
     append(value){
-        const newNode = new Node(value);
+        const newNode = new Node(value);        // create new node and assign. constant time operation
 
         if(!this.head){
             this.head = newNode;
@@ -42,8 +42,13 @@ class LinkedList{
         if(curr.next){
             curr.next = curr.next.next;
         }
+
+        /**
+         * Time complexity: O(n). in best case if the value is in head then it will be O(1).
+         * otherwise we have to check through all nodes to find our desired value.
+         */
     }
-    
+    // for understandable output
     toString(){
         let current = this.head;
         let result = '';

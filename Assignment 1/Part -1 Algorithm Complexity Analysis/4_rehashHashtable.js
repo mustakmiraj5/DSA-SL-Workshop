@@ -32,17 +32,17 @@ class HashTable {
 
         for (let i = 0; i < oldTable.length; i++) {         // O(n) time complexity. 
             if (oldTable[i]) {
-                this.set(oldTable[i].key, oldTable[i].value);
+                this.set(oldTable[i].key, oldTable[i].value);       // have to go through all value pairs and set to new hashmap
             }
         }
     }
 
     set(key, value) {
         if (this.size / this.capacity >= this.loadFactor) {
-            this.#rehash();
+            this.#rehash();             // liner time operation. 
         }
 
-        const index = this.#hash(key);
+        const index = this.#hash(key);      // 2 operation. generate hash and assign
         // console.log(index);
         this.table[index] = { key, value };   //  assign the value. 1 operation
         this.size++;                          // 2 operations. increase value and reassign

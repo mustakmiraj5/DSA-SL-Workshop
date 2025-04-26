@@ -1,14 +1,17 @@
+/**
+ * check if an array has unique elements or not.
+ */
 class isUnique{
     constructor(array){
-        this.array = array;
+        this.array = array; // constant time operation
     }
 
     checkArray(){
-        let distinct = new Set();
+        let distinct = new Set();           // O(1) constant time operation
         for(let i = 0; i<this.array.length; i++){
-            distinct.add(this.array[i]);
+            distinct.add(this.array[i]);        // depend on the array length. it have to go though all indexes and assign to the set. O(n) time complexity
         }
-        return (distinct.size == this.array.length);
+        return (distinct.size == this.array.length);        // constant time operation
     }
 }
 
@@ -17,6 +20,10 @@ console.log(arr.checkArray());
 
 
 // from dynamic array problem
+
+/**
+ * This is the dynamic array taken from previous solution. Here i added the same method to check the uniqueness of the array.
+ */
 
 class DynamicArray{
     constructor(){
@@ -65,7 +72,7 @@ class DynamicArray{
         for(let i = 0; i<this.size; i++){
             distinct.add(this.array[i]);
         }
-        console.log(distinct.size, this.size);
+        // console.log(distinct.size, this.size);
         return (distinct.size == this.size);
     }
 }
