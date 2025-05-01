@@ -3,12 +3,12 @@ class CustomStack {
     constructor(maxSize = 100) {
       this.stack = new Array(maxSize);
       this.top = -1;
-      this.maxSize = maxSize;
+      this.maxSize = maxSize;   // constant time operation
     }
   
     push(value) {
       if(this.top >= this.maxSize - 1){
-        console.log('Stack overflow');
+        console.log('Stack overflow');    // checking overflow 1 operation
         return;
       }
       this.top++;
@@ -17,7 +17,7 @@ class CustomStack {
   
     pop() {
       if (this.top < 0) {
-        console.log('Stack underflow');
+        console.log('Stack underflow');       // checking underflow 1 operation
         return null; 
       }
 
@@ -28,7 +28,7 @@ class CustomStack {
   
     peek() {
       if (this.top < 0) {
-        console.log('Stack underflow');
+        console.log('Stack underflow');     // checking underflow 1 operation
         return null;
       }
       return this.stack[this.top];      // O(1) time complexity
